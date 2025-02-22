@@ -8,6 +8,7 @@
     <script src="js/test/lib/jasmine-3.8.0/jasmine.js"></script>
     <script src="js/test/lib/jasmine-3.8.0/jasmine-html.js"></script>
     <script src="js/test/lib/jasmine-3.8.0/boot.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -19,7 +20,7 @@
 
   <body>
     <!-- Replace "Your Name Goes Here!" with your first and last name, thanks! -->
-    <h1>Your Name Goes Here!</h1>
+    <h1>Soham Sahasrabuddhe and Gianna Calderon</h1>
 
     <div id="content">
       <div id="calculator-container">
@@ -32,14 +33,13 @@
             type="button"
             id="1"
             value="  1  "
-            onclick="calc.output.value = calc.output.value + this.id"
           />
           <input
             type="button"
             id="2"
             value="  2  "
-            onclick="calc.output.value += this.id"
           />
+          
           <input type="button" id="3" value="  3  " />
           <input type="button" id="+" value="  +  " /> <br />
           <input type="button" id="4" value="  4  " />
@@ -57,6 +57,18 @@
           <input type="button" id="/" value="&divide;" />
         </form>
       </div>
+
+      <script>
+        $('input[type="button"]').on("click", function() {
+          if (this.id === 'c') {
+            calc.output.value = '';
+          } else if (this.id === 'equate') {
+            calc.output.value = math.eval(calc.output.value);
+          } else {
+            calc.output.value = calc.output.value + this.id
+          }
+        });
+      </script>
       <h2>Part 1 Inline Version</h2>
     </div>
     <!-- source files -->
