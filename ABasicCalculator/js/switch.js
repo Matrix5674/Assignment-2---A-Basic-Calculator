@@ -34,17 +34,21 @@
 
 var calcu = function(calcValue) {
 	"use strict";
+	calcValue = calcValue.trim();
+
 	switch (calcValue) {
 		// Add missing code here
 		case 'c':
 			calc.output.value = '';
-			break;
+			return;
 
 		case "equate":
 			// use the math.eval() function from the Math.js math library to parse and evaluate the String with mathematics in it
 			calc.output.value = math.eval(calc.output.value);
-			break;
+			return;
+		
 	}
+	calc.output.value = calc.output.value + calcValue;
 
-	calc.output.value += calcValue;
+	
 };
