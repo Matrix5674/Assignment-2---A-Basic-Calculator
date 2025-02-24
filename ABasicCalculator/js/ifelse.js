@@ -29,6 +29,14 @@ var calcu = function(calcValue) {
 		// calcValue wasn't null or undefined'
 		console.log("calcValue:", calcValue);
 		// TODO: Add missing code here
+	
+	if (calcValue === "c") {
+		calc.output.value = "";
+	} else if (calcValue === "equate") {
+		calc.output.value = math.eval(calc.output.value);
+	} else {
+		calc.output.value += calcValue;
+	}
 	}
 };
 
@@ -42,5 +50,17 @@ var calcu = function(calcValue) {
 var clickEventHandler = function(event) {
 	"use strict";
 	// TODO: Add missing code here
+	var buttonValue = event.target.id;
+	calcu(buttonValue);
 };
 // TODO: Add missing code here
+
+// Get input elements
+var inputs = document.getElementsByTagName("input");
+
+// Loop through inputs and add event listeners
+for (var i = 0; i < inputs.length; i++) {
+	if (inputs[i].type === "button") {
+		inputs[i].addEventListener("click", clickEventHandler);
+	}
+}
