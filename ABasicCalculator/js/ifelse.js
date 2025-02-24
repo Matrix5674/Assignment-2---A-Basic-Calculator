@@ -50,8 +50,7 @@ var calcu = function(calcValue) {
 var clickEventHandler = function(event) {
 	"use strict";
 	// TODO: Add missing code here
-	var buttonValue = event.target.id;
-	calcu(buttonValue);
+	calcu(event.target.id);
 };
 // TODO: Add missing code here
 
@@ -61,6 +60,6 @@ var inputs = document.getElementsByTagName("input");
 // Loop through inputs and add event listeners
 for (var i = 0; i < inputs.length; i++) {
 	if (inputs[i].type === "button") {
-		inputs[i].addEventListener("click", clickEventHandler);
+		inputs[i].onclick = clickEventHandler;
 	}
 }
